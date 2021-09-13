@@ -1,15 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <AutoLogout msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AutoLogout from './components/AutoLogout.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    AutoLogout
   }
 }
 </script>
