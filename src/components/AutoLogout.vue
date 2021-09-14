@@ -15,6 +15,12 @@ export default {
       logoutTimer: null,
     }
   },
+  unmounted() {
+    this.events.forEach((event) => {
+      window.removeEventListener(event, this.resetTimer)
+    });
+    this.resetTimers();
+  },
   mounted() {
     //listen for any events from the user
     this.events.forEach((event) => {
@@ -25,15 +31,21 @@ export default {
   methods: {
     setTimers: function() {
       //this method will invoke the warningMessage method giving the user feedback, warning them they are about to be logged out if they are inactive
-      this.warningTimer = setTimeout(this.warningMessage, 4 * 1000)
+      this.warningTimer = setTimeout(this.warningMessage, 14 * 60 * 1000);
+      this.logoutTimer = setTimeout(this.warningMessage, 15 * 60 * 1000);
     },
     warningMessage: function () {
       //this is the warning message
       alert('warning');
     },
+    logoutUser: function () {
+      //this method will logout the user. adjust to fit your application
+      document.getElementById('logout-form').submit;
+    },
     resetTimer: function () {
       //if any input is detected the warningTimer method will be reset, keeping the user signed in
       clearTimeout(this.warningTimer);
+      clearTimeout(this.logoutTimer);
       this.setTimers();
     }
   }
