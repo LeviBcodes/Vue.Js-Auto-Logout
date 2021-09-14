@@ -42,7 +42,7 @@ export default {
       //this method will logout the user. adjust to fit your application
       document.getElementById('logout-form').submit;
     },
-    resetTimer: function () {
+    resetTimers: function () {
       //if any input is detected the warningTimer method will be reset, keeping the user signed in
       clearTimeout(this.warningTimer);
       clearTimeout(this.logoutTimer);
