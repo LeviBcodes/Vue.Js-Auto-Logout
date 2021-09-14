@@ -17,14 +17,14 @@ export default {
   },
   unmounted() {
     this.events.forEach((event) => {
-      window.removeEventListener(event, this.resetTimer)
+      window.removeEventListener(event, this.resetTimers)
     });
     this.resetTimers();
   },
   mounted() {
     //listen for any events from the user
     this.events.forEach((event) => {
-      window.addEventListener(event, this.resetTimer)
+      window.addEventListener(event, this.resetTimers)
     });
     this.setTimers();
   },
